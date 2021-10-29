@@ -1,0 +1,54 @@
+" My .vimrc file James Rivers
+" created 210426
+" updared 210502
+
+set nocompatible
+
+"####################### Vim additions  #######################
+
+" automatically indent new lines
+set autoindent
+
+" automatically write files when changing when multiple files open
+set autowrite
+
+" activate line numbers
+set number
+
+" turn col and row position on in bottom right
+set ruler
+
+" show command and insert mode
+set showmode
+
+" set a tab to be 4 spaces 
+set tabstop=4
+
+" turn on syntax hightlighting
+syntax on
+
+" Spelling 
+set spell
+
+
+" disable arrow keys (vi muscle memory)
+noremap <up> :echoerr "Umm really?!!?, use k instead"<CR>
+noremap <down> :echoerr "Umm you id10t, use j instead"<CR>
+noremap <left> :echoerr "Umm again, use h instead"<CR>
+noremap <right> :echoerr "Umm no hope, use l instead"<CR>
+inoremap <up> <NOP>
+inoremap <down> <NOP>
+inoremap <left> <NOP>
+inoremap <right> <NOP>
+
+" Map alternatives the <ESC> key (<C-[> already is)
+inoremap jj <Esc>
+cnoremap jj <Esc>
+inoremap kk <Esc>
+cnoremap kk <Esc>
+inoremap kj <Esc>
+cnoremap kj <Esc>
+
+" Plugin Manager 
+execute pathogen#infect()
+:set t_Co=256
