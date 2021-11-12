@@ -158,13 +158,14 @@ alias tdcs2='xfreerdp +clipboard /smart-sizing /v:192.168.90.218 /u:Administrato
 alias tdmot1='xfreerdp +clipboard /smart-sizing /v:192.168.90.209 /u:Administrator /p:Imagine!'
 alias rsnvpn='xfreerdp +clipboard /smart-sizing /v:192.168.90.159 /u:Administrator /p:Imagine!'
 alias tdadc='xfreerdp +clipboard /smart-sizing /v:192.168.90.231 /u:Administrator /p:Imagine!'
+alias aws1='xfreerdp +clipboard /smart-sizing /v:54.211.191.210 /u:Administrator /p:Icanseethegalaxy.'
 ## AWS INSTANCES
 alias captainamerica='xfreerdp +clipboard /smart-sizing /v:ec2-3-86-9-23.compute-1.amazonaws.com /u:Administrator /p:qy3onqZ6j$YITtiBIPIeAq=s.NM6cfab'
 
 
 
 ## mounts
-alias nasbtns='sudo mount -t nfs 192.168.1.69:/volume1/btns/ /mnt/nas/btns/'
+alias nasbtns='sudo mount -t nfs 172.16.1.105:/volume1/btns/ /mnt/nas/btns/'
 alias nasvirt='sudo mount -t nfs 192.168.1.69:/volume1/virtual_iso/ /mnt/nas/virtual/'
 alias nasmusic='sudo mount -t nfs 192.168.1.69:/volume1/music/ /mnt/nas/music/'
 alias naselaine='sudo mount -t nfs 192.168.1.69:/volume1/elaine/ /mnt/nas/elaine/'
@@ -173,8 +174,8 @@ alias wtlpublic='sudo mount -t cifs -o username=jriver13,dom=harrisbroadcast //w
 ## Python
 alias spyder='/home/james/anaconda3/bin/runspyder.sh'
 alias jupyter-notebook='/home/james/anaconda3/bin/runjupyternotebook.sh'
-alias '?'='~/git/personal/shells/duck'
-alias '??'='~/git//personal/shells/google'
+alias '?'='/home/james/Dropbox/dotfiles/lynx_dot/shells/duck'
+alias '??'='/home/james/Dropbox/dotfiles/lynx_dot/shells/google'
 alias portainer='sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 ## converts
@@ -187,7 +188,12 @@ alias front='mpv rtsp://admin@192.168.1.45/user=admin_password=tlJwpbo6_channel=
 alias back='mpv rtsp://admin@192.168.1.48/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp'
 alias den='mpv rtsp://admin@192.168.1.43/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp'
 alias tune='mpv --shuffle  /mnt/nas/music/codetracks/'
+#find things
 alias pg='pdfgrep -iHnr'
+alias drl='grep -rnwil ~/Dropbox/ -e'
+alias dr='grep -rnwi ~/Dropbox/ -e'
+alias drcl='grep -rnwil . -e'
+alias drc='grep -rnwi . -e'
 alias fire1='mpv --fullscreen --loop /mnt/nas/video/Work/fire1.webm'
 alias fire2='mpv --fullscreen --loop /mnt/nas/video/Work/fire2.webm'
 alias findnew='find -cmin +1  -cmin -2800'
@@ -197,7 +203,7 @@ alias myip='curl ipinfo.io && curl ifconfig.me/all'
 alias fish='asciiquarium'
 alias run='~/docker/script/dockerrun.sh'
 alias tm='tmux new-session -s daily'
-
+alias cams="mpv rtsp://admin@192.168.1.45/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp --external-file=rtsp://admin@192.168.1.48/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp  --external-file=rtsp://admin@192.168.1.43/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp  --external-file=rtsp://admin@192.168.1.45/user=admin_password=tlJwpbo6_channel=1_stream=0.sdp  --lavfi-complex='[vid1] [vid2] hstack [t1] ; [vid3] [vid4] hstack [t2] ; [t1] [t2] vstack [vo]'"
 # links
 alias naspdf='cd /mnt/nas/btns/B.AdobePDF/'
 alias nasmd='cd "/mnt/nas/btns/A. Markdown/obsidian/DeepThought/"'
@@ -231,6 +237,15 @@ alias add='git add .'
 alias commit='git commit -m'
 alias push='git push'
 alias acp='git add . && git commit -m "Updated $(date)" && git push'
+alias g='git'
+alias ga='git add' #add files you list or current dir with . 
+alias gaa='git add --all' #add all files in pwd
+alias gapa='git add --patch' #add part of files
+alias gba='git branch -a' #show local and remote branches
+alias gbd='git branch -d' #delete branch
+alias gbc='git checkout -b' #plus name of the new branch and switch into it
+alias gpo='git push origin' #push new created branch to remote
+alias gb='git checkout' #plus name of branch - switch branches
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/james/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

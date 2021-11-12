@@ -1,0 +1,38 @@
+## NAS Mount
+30 0 * * * sudo mount -t nfs 192.168.1.69:/volume1/btns/ /mnt/nas/btns/
+## BOX Community Files to NAS
+0 1 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imaginebox:/Customer Community files//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/box/"
+30 1 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imaginebox:/Customer Community files//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/box/"
+## BOX FEFiles to NAS
+0 2 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imaginebox:/FEFiles//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/box/FEFiles/"
+30 2 * * *  rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imaginebox:/FEFiles//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/box/FEFiles/"
+## MS OneDrive TechPubs to NAS
+0 3 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imagineonedrive:/Internal Documentation//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+30 3 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imagineonedrive:/Internal Documentation//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+0 4 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imagineonedrive:/Released Documentation//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+30 4 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imagineonedrive:/Released Documentation//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+0 5 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imagineonedrive:/Sandbox//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+30 5 * * *  rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imagineonedrive:/Sandbox//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/techpubs"
+0 6 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing  copy "imagineonedrive:/Documents//" "/mnt/nas/btns/Z. PN_PLM/
+## FTP AutoLOB to Local NAS
+0 7 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "imagineftp_autolob:/FTP/Archive//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/autolob/"
+30 7 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "imagineftp_autolob:/FTP/Archive//" "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/autolob/"
+##Dropbox  Markdown to NAS"
+## Dropbox (OBSIDIAN) to Local NAS
+0 8 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include  "*.md" copy "dropbox:apps/obsidian/DeepThought/" "/mnt/nas/btns/A. Markdown/obsidian/DeepThought"
+30 8 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include  "*.png" copy "dropbox:apps/obsidian/DeepThought/" "/mnt/nas/btns/A. Markdown/obsidian/DeepThought"
+## NAS to Google Drive 
+### BOX FILES / ONEDRIVE FILES / FE FILES / AUTOLOB FILES / 
+0 9 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.pdf" copy "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/"  "googledrive:/ImagineRef/"
+30 9 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include "*.doc" copy "/mnt/nas/btns/B.AdobePDF/A.ImagineCommsREF/"  "googledrive:/ImagineRef/"
+###  rclone -P --ignore-existing --include "*.pdf" copy "/mnt/nas/btns/Z. PN_PLM/" "googledrive:/ImagineRef/"
+### TRAINING MATERIALS  NAS to Drive (need to merge and review)
+#rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing  copy "/mnt/nas/btns//mnt/nas/btns/D.TrainingMaterials"  "googledrive:/TrainingMaterials/"
+#rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing  copy "/mnt/nas/btns//mnt/nas/btns/K. Course Materials"  "googledrive:/TrainingMaterials/"
+### OBSIDIAN MD and PNG NAS to Drive
+0 10 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include  "*.md" copy "/mnt/nas/btns/A. Markdown/obsidian/DeepThought" "googledrive:/Obsidian/"
+30 10 * * * rclone -Pv --log-file=/home/james/rclonelogs --ignore-existing --include  "*.png" copy "/mnt/nas/btns/A. Markdown/obsidian/DeepThought" "googledrive:/Obsidian/"
+## Pruning
+0 11 * * 7 rm -rf /home/james/rclonelogs
+1 11 * * 7 touch /home/james/rconelogs
+
